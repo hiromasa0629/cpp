@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/13 12:15:31 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/14 12:28:36 by hyap             ###   ########.fr       */
+/*   Created: 2022/08/18 01:53:53 by hyap              #+#    #+#             */
+/*   Updated: 2022/08/18 22:26:36 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./megaphone.hpp"
+#include "Zombie.hpp"
 
-int	main(int ac, char **av)
+int	main(int ac, char **argv)
 {
-	if (ac == 1)
-		std::cout << "* LOUD AND UNCEARABLE FEEDBACK NOISE *" << std::ends;
-	for (int i = 1; i < ac; i++)
-		std::cout << av[i] << std::ends;
-	std::cout << std::endl;
+	Zombie	*zombies;
+	int		N;
+
+	if (ac != 3)
+	{
+		std::cout << "./main [Number of zombies] [Name]" << std::endl;
+		return (0);
+	}
+	N = std::atoi(argv[1]);
+	zombies = zombieHorde(N, argv[2]);
+	for (int i = 0; i < N; i++)
+		zombies[i].announce();
+	delete[] zombies;
+	system("leaks main");
 	return (0);
 }

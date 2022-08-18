@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/13 12:15:31 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/14 12:28:36 by hyap             ###   ########.fr       */
+/*   Created: 2022/08/19 00:00:38 by hyap              #+#    #+#             */
+/*   Updated: 2022/08/19 01:37:28 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./megaphone.hpp"
+#include "Sed.hpp"
 
 int	main(int ac, char **av)
 {
-	if (ac == 1)
-		std::cout << "* LOUD AND UNCEARABLE FEEDBACK NOISE *" << std::ends;
-	for (int i = 1; i < ac; i++)
-		std::cout << av[i] << std::ends;
-	std::cout << std::endl;
+	Sed			sed;
+	std::string	filein;
+
+	if (ac != 4)
+	{
+		std::cout << "Usage: ./main [file] [string_one] [string_two]" << std::endl;
+		return (0);
+	}
+	filein.assign(av[1]);
+	if (!sed.setFilein(filein))
+		return (0);
+	if (!sed.setFileout(filein.append(".replace")))
+		return (0);
+	sed.replaceString(av[2], av[3]);
 	return (0);
 }

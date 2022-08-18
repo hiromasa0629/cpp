@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/13 12:15:31 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/14 12:28:36 by hyap             ###   ########.fr       */
+/*   Created: 2022/08/19 02:08:47 by hyap              #+#    #+#             */
+/*   Updated: 2022/08/19 02:31:51 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./megaphone.hpp"
+#include "Harl.hpp"
 
 int	main(int ac, char **av)
 {
-	if (ac == 1)
-		std::cout << "* LOUD AND UNCEARABLE FEEDBACK NOISE *" << std::ends;
-	for (int i = 1; i < ac; i++)
-		std::cout << av[i] << std::ends;
-	std::cout << std::endl;
-	return (0);
+	std::string arg;
+	Harl		harl;
+
+	if (ac != 2)
+	{
+		std::cout << "Usage: ./harlFilter [level]" << std::endl;
+		return (0);
+	}
+	arg.assign(av[1]);
+	harl.complain(arg);
 }

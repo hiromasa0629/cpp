@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/13 12:15:31 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/14 12:28:36 by hyap             ###   ########.fr       */
+/*   Created: 2022/08/19 01:41:48 by hyap              #+#    #+#             */
+/*   Updated: 2022/08/19 02:26:38 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./megaphone.hpp"
+#include "Harl.hpp"
 
-int	main(int ac, char **av)
+int	main(void)
 {
-	if (ac == 1)
-		std::cout << "* LOUD AND UNCEARABLE FEEDBACK NOISE *" << std::ends;
-	for (int i = 1; i < ac; i++)
-		std::cout << av[i] << std::ends;
+	Harl		harl;
+	std::string	arg;
+
+	std::cout << "1. DEBUG" << std::endl;
+	std::cout << "2. INFO" << std::endl;
+	std::cout << "3. WARNING" << std::endl;
+	std::cout << "4. ERROR" << std::endl;
 	std::cout << std::endl;
+
+	while (1)
+	{
+		std::cout << "Level: " << std::ends;
+		std::getline(std::cin, arg);
+		if (arg.length() < 1)
+			return (0);
+		harl.complain(arg);
+	}
 	return (0);
 }

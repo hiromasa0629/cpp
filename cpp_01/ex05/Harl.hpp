@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/13 12:15:31 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/14 12:28:36 by hyap             ###   ########.fr       */
+/*   Created: 2022/08/19 01:38:28 by hyap              #+#    #+#             */
+/*   Updated: 2022/08/19 01:55:08 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./megaphone.hpp"
+#ifndef HARL_H
+# define HARL_H
+# include <iostream>
 
-int	main(int ac, char **av)
-{
-	if (ac == 1)
-		std::cout << "* LOUD AND UNCEARABLE FEEDBACK NOISE *" << std::ends;
-	for (int i = 1; i < ac; i++)
-		std::cout << av[i] << std::ends;
-	std::cout << std::endl;
-	return (0);
-}
+class Harl {
+	public:
+		Harl(void);
+		~Harl(void);
+
+		void	complain(std::string level);
+	
+	private:
+		std::string	_levels[4];
+		void	(Harl::*_f[4])(void) const;
+
+		void	_debug(void) const;
+		void	_info(void) const;
+		void	_warning(void) const;
+		void	_error(void) const;
+};
+
+#endif

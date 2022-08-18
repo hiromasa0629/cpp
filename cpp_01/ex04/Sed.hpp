@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Sed.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/13 12:15:31 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/14 12:28:36 by hyap             ###   ########.fr       */
+/*   Created: 2022/08/19 00:12:20 by hyap              #+#    #+#             */
+/*   Updated: 2022/08/19 01:25:40 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./megaphone.hpp"
+#ifndef SED_H
+# define SED_H
+# include <iostream>
+# include <fstream>
+# include <sstream>
 
-int	main(int ac, char **av)
-{
-	if (ac == 1)
-		std::cout << "* LOUD AND UNCEARABLE FEEDBACK NOISE *" << std::ends;
-	for (int i = 1; i < ac; i++)
-		std::cout << av[i] << std::ends;
-	std::cout << std::endl;
-	return (0);
-}
+class Sed {
+	public:
+		Sed(void);
+		~Sed(void);
+
+		bool	setFilein(std::string path);
+		bool	setFileout(std::string path);
+
+		void	replaceString(char *s1, char *s2);
+
+	private:
+		std::ofstream _fileout;
+		std::ifstream _filein;
+};
+
+#endif
