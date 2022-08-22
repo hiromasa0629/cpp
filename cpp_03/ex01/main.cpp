@@ -6,7 +6,7 @@
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 16:34:38 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/23 00:52:44 by hyap             ###   ########.fr       */
+/*   Updated: 2022/08/22 23:50:18 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,13 @@ int	main(int ac, char **av)
 	std::string	name(av[1]);
 	std::string target(av[2]);
 	ClapTrap	claptrap(name);
-	ClapTrap	targetCP(target);
 
 	claptrap.attack(target);
-	targetCP.takeDamage(claptrap.get_dmg());
-	claptrap.attack(target);
-	targetCP.takeDamage(claptrap.get_dmg());
-	targetCP.beRepaired(3);
+	claptrap.takeDamage(5);
+	claptrap.beRepaired(3);
 
-	ClapTrap	copy_target(claptrap);
-	copy_target.attack(name);
-	claptrap.takeDamage(copy_target.get_dmg());
+	ClapTrap	copyCP(claptrap);
+	claptrap.beRepaired(2);
 
 	return (0);
 }

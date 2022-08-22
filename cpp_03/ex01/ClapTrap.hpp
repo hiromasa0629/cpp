@@ -6,7 +6,7 @@
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 16:34:48 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/23 00:48:48 by hyap             ###   ########.fr       */
+/*   Updated: 2022/08/23 00:25:47 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ class ClapTrap {
 
 		void	print_status(void) const;
 
-	private:
+	protected:
 		ClapTrap(void);
 
 		std::string	_name;

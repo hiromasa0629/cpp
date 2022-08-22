@@ -6,7 +6,7 @@
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 16:49:40 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/23 00:53:34 by hyap             ###   ########.fr       */
+/*   Updated: 2022/08/23 00:38:20 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,18 @@ ClapTrap::ClapTrap(void) : _hp(10), _energy(10), _dmg(0)
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << RED << "ClapTrap [" << this->get_name() << "] Destructing..." << WHITE << std::endl;
+	std::cout << RED << "ClapTrap [" << this->get_name() << "] Destructing..." << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hp(10), _energy(10), _dmg(0)
 {
-	std::cout << GREEN << "ClapTrap [" << this->get_name() << "] Name constructor called" << WHITE << std::endl;
+	std::cout << GREEN << "ClapTrap [" << this->get_name() << "] Name constructor called" << std::endl;
 	this->print_status();
 }
 
 ClapTrap::ClapTrap(const ClapTrap &a) : _name(a.get_name()), _hp(a.get_hp()), _energy(a.get_energy()), _dmg(a.get_dmg())
 {
-	std::cout << GREEN << "ClapTrap [" << this->get_name() << "] ClapTrap copy constructor called" << WHITE << std::endl;
+	std::cout << GREEN << "ClapTrap [" << this->get_name() << "] ClapTrap copy constructor called" << std::endl;
 	this->print_status();
 }
 
