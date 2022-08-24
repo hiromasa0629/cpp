@@ -6,13 +6,13 @@
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 00:03:30 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/24 15:08:58 by hyap             ###   ########.fr       */
+/*   Updated: 2022/08/24 17:37:09 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(void)
+ScavTrap::ScavTrap(void) : _HP(100), _ENERGY(50), _DMG(20)
 {
 	this->_hp = 100;
 	this->_energy = 50;
@@ -21,7 +21,7 @@ ScavTrap::ScavTrap(void)
 	this->print_status();
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name), _HP(100), _ENERGY(50), _DMG(20) 
 {
 	this->_name = name;
 	this->_hp = 100;
@@ -36,12 +36,9 @@ ScavTrap::~ScavTrap(void)
 	std::cout << RED << "ScavTrap [" << this->get_name() << "] Destructing..." << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &a)
+ScavTrap::ScavTrap(const ScavTrap &a) : _HP(100), _ENERGY(50), _DMG(20)
 {
-	this->_name = a.get_name();
-	this->_hp = a.get_hp();
-	this->_energy = a.get_energy();
-	this->_dmg = a.get_dmg();
+	*this = a;
 	std::cout << GREEN << "ScavTrap [" << this->get_name() << "] copy constructor called" << WHITE << std::endl;
 	this->print_status();
 }
@@ -56,12 +53,17 @@ ScavTrap	&ScavTrap::operator=(const ScavTrap &rhs)
 	return (*this);
 }
 
+void	ScavTrap::guardGate(void) const
+{
+	std::cout << "[" << this->get_name() << "] Gate keeper mode activated!" << std::endl;
+}
+
 void	ScavTrap::attack(const std::string &target)
 {
-	std::cout << "[" << this->get_name() << "] attacking " << target << "..." << std::endl;
+	std::cout << "[" << this->get_name() << "] Scavttacking " << target << "..." << std::endl;
 	if (this->get_energy() <= 0)
 	{
-		std::cout << "ScavTrap [" << this->get_name() << "] has no energy left." << std::endl;
+		std::cout << "[" << this->get_name() << "] has no energy left." << std::endl;
 		this->print_status();
 	}
 	else
@@ -70,14 +72,4 @@ void	ScavTrap::attack(const std::string &target)
 		this->_energy--;
 		this->print_status();
 	}
-}
-
-void	ScavTrap::print_status(void) const
-{
-	std::cout << "[" << this->get_name() << "] HP: " << this->get_hp() << ", ENERGY: " << this->get_energy() << std::endl;
-}
-
-void	ScavTrap::guardGate(void) const
-{
-	std::cout << "[" << this->get_name() << "] Gate keeper mode activated!" << std::endl;
 }

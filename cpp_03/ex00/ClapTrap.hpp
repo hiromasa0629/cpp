@@ -6,7 +6,7 @@
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 16:34:48 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/23 00:48:48 by hyap             ###   ########.fr       */
+/*   Updated: 2022/08/24 13:22:11 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ class ClapTrap {
 		void	beRepaired(unsigned int amount);
 
 		std::string	get_name(void) const;
-		int	get_hp(void) const;
-		int	get_energy(void) const;
-		int	get_dmg(void) const;
+		int			get_hp(void) const;
+		int			get_energy(void) const;
+		int			get_dmg(void) const;
 
 		void	set_hp(int hp);
 		void	set_energy(int energy);

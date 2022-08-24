@@ -6,7 +6,7 @@
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 16:34:38 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/23 00:52:44 by hyap             ###   ########.fr       */
+/*   Updated: 2022/08/24 13:23:59 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int	main(int ac, char **av)
 	targetCP.beRepaired(3);
 
 	ClapTrap	copy_target(claptrap);
-	copy_target.attack(name);
-	claptrap.takeDamage(copy_target.get_dmg());
+	copy_target.attack(target);
+	targetCP.takeDamage(copy_target.get_dmg());
 
 	return (0);
 }

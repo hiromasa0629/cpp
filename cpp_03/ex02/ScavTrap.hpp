@@ -6,7 +6,7 @@
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 00:00:29 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/24 13:35:44 by hyap             ###   ########.fr       */
+/*   Updated: 2022/08/24 15:55:25 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,8 @@ class ScavTrap : public ClapTrap {
 		ScavTrap(const ScavTrap &a);
 		ScavTrap	&operator=(const ScavTrap &rhs);
 
-		void	attack(const std::string &target);
 		void	guardGate(void) const;
-
-		void	print_status(void) const;
-
+		void	attack(const std::string &target);
 };
 
 #endif

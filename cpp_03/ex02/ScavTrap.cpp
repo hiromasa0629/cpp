@@ -6,7 +6,7 @@
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 00:03:30 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/24 15:08:58 by hyap             ###   ########.fr       */
+/*   Updated: 2022/08/24 15:55:57 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,17 @@ ScavTrap	&ScavTrap::operator=(const ScavTrap &rhs)
 	return (*this);
 }
 
+void	ScavTrap::guardGate(void) const
+{
+	std::cout << "[" << this->get_name() << "] Gate keeper mode activated!" << std::endl;
+}
+
 void	ScavTrap::attack(const std::string &target)
 {
-	std::cout << "[" << this->get_name() << "] attacking " << target << "..." << std::endl;
+	std::cout << "[" << this->get_name() << "] Scavttacking " << target << "..." << std::endl;
 	if (this->get_energy() <= 0)
 	{
-		std::cout << "ScavTrap [" << this->get_name() << "] has no energy left." << std::endl;
+		std::cout << "[" << this->get_name() << "] has no energy left." << std::endl;
 		this->print_status();
 	}
 	else
@@ -70,14 +75,4 @@ void	ScavTrap::attack(const std::string &target)
 		this->_energy--;
 		this->print_status();
 	}
-}
-
-void	ScavTrap::print_status(void) const
-{
-	std::cout << "[" << this->get_name() << "] HP: " << this->get_hp() << ", ENERGY: " << this->get_energy() << std::endl;
-}
-
-void	ScavTrap::guardGate(void) const
-{
-	std::cout << "[" << this->get_name() << "] Gate keeper mode activated!" << std::endl;
 }

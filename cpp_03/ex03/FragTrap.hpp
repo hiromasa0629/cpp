@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/23 00:00:29 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/24 13:35:44 by hyap             ###   ########.fr       */
+/*   Created: 2022/08/24 14:29:31 by hyap              #+#    #+#             */
+/*   Updated: 2022/08/24 15:43:04 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_H
-# define SCAVTRAP_H
+#ifndef FRAGTRAP_H
+# define FRAGTRAP_H
 # include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap {
+class FragTrap : public virtual ClapTrap{
 	public:
-		ScavTrap(void);
-		~ScavTrap(void);
-		ScavTrap(std::string name);
-		ScavTrap(const ScavTrap &a);
-		ScavTrap	&operator=(const ScavTrap &rhs);
-
-		void	attack(const std::string &target);
-		void	guardGate(void) const;
-
-		void	print_status(void) const;
-
+		FragTrap(void);
+		FragTrap(std::string name);
+		~FragTrap(void);
+		FragTrap(const FragTrap &a);
+		FragTrap	&operator=(const FragTrap &rhs);
+		
+		void	highFivesGuys(void) const;
+	
+	protected:
+		const int	_HP;
+		const int	_ENERGY;
+		const int	_DMG;
 };
 
 #endif
