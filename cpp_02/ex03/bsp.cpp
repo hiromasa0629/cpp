@@ -6,7 +6,7 @@
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 20:53:35 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/22 15:25:48 by hyap             ###   ########.fr       */
+/*   Updated: 2022/08/30 20:00:30 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ float	isSameSide(const Point p1, const Point p2, const Point p3, const Point poi
 /* Barycentric Technique
 	P = A + u(C - A) + v(B - A)
 	(P - A) = u(C - A) + v(B - A)
-	v0 = u(v1) + v(v2) 
+	v0 = u(v1) + v(v2)
 	
 	// Two unknown so multiply by v0 and v1
 	v0•v0 = u(v1•v0) + v(v2•v0)
