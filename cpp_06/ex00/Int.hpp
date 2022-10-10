@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Int.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 22:10:43 by hyap              #+#    #+#             */
-/*   Updated: 2022/10/10 17:51:19 by hyap             ###   ########.fr       */
+/*   Created: 2022/10/10 17:54:48 by hyap              #+#    #+#             */
+/*   Updated: 2022/10/10 17:56:34 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Char.hpp"
+#ifndef INT_H
+# define INT_H
+# include <iostream>
+# include "AScalar.hpp"
 
-int	main(int ac, char **av)
-{
-	if (ac != 2)
-	{
-		std::cout << "./main [string literal]" << std::endl;
-		return (1);
-	}
-	
-	Char c;
-	
-	c.fit(av[1]);
-	
-	c.print();
-	
-	return (0);
-}
+class Int : public AScalar {
+	public:
+		Int(void);
+		~Int(void);
+		Int(const Int &src);
+		Int	&operator=(const Int &rhs);
+		
+		void	fit(char *arg);
+
+	private:
+		
+};
+
+#endif

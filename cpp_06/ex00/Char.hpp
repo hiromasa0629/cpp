@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Char.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 22:10:43 by hyap              #+#    #+#             */
-/*   Updated: 2022/10/10 17:51:19 by hyap             ###   ########.fr       */
+/*   Created: 2022/10/09 17:40:29 by hyap              #+#    #+#             */
+/*   Updated: 2022/10/10 17:49:12 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Char.hpp"
+#ifndef CHAR_H
+# define CHAR_H
+# include <iostream>
+# include "AScalar.hpp"
 
-int	main(int ac, char **av)
-{
-	if (ac != 2)
-	{
-		std::cout << "./main [string literal]" << std::endl;
-		return (1);
-	}
+class Char : public AScalar {
+	public:
+		Char(void);
+		~Char(void);
+		Char(const Char &src);
+		Char	&operator=(const Char &rhs);
 	
-	Char c;
-	
-	c.fit(av[1]);
-	
-	c.print();
-	
-	return (0);
-}
+		void	fit(char *arg);
+	private:
+		bool	isPrintable(long num) const;
+};
+
+#endif
