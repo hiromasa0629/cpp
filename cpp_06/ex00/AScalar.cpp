@@ -54,25 +54,6 @@ void	AScalar::setMsg(const std::string msg)
  * Functions
 ***********************************/
 
-bool	AScalar::isFloatOrDoubleOrInt(char *end) const
-{
-	if (*end == '.' || *end == 'f' || *end == '\0')
-		return (true);
-	return (false);
-}
-
-bool	AScalar::isNanOrNull(char *arg) const
-{
-	if (!arg || !*arg || std::strcmp(arg, "nan") == 0)
-		return (true);
-	return (false);
-}
-
-bool	AScalar::isDigit(char c) const
-{
-	return (c >= '0' && c <= '9');
-}
-
 void	AScalar::print(void) const
 {
 	std::cout << this->getMsg() << std::endl;

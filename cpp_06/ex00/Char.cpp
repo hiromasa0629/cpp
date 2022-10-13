@@ -6,7 +6,7 @@
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 17:40:38 by hyap              #+#    #+#             */
-/*   Updated: 2022/10/10 18:14:44 by hyap             ###   ########.fr       */
+/*   Updated: 2022/10/13 17:01:53 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,36 +33,30 @@ Char	&Char::operator=(const Char &rhs)
 	return (*this);
 }
 
-/***********************************
- * Functions
-***********************************/
-
-void	Char::fit(char *arg)
+Char::Char(const Conversion &converted)
 {
-	char				*end;
-	long				num;
+	const int 			type = converted.getType();
+	const std::string	arg = converted.getArg();
+	const int			sign = converted.getSign();
 	std::stringstream	ss;
+	long				num;
+	char				*endptr;
 	
-	num = std::strtol(arg, &end, 10);
-	if (isNanOrNull(arg))
-		this->setMsg("char: impossible");
-	else if (std::strlen(arg) > 1 && !isFloatOrDoubleOrInt(end))
-		this->setMsg("char: impossible");
-	else if (!isPrintable(num) && !isPrintable(*arg))
-		this->setMsg("char: Non displayable");
-	else
+	if (type == T_NAN || type == T_IMPOSSIBLE)
+		ss << "char: impossible";
+	else if (type == T_CHAR)
+		ss << "char: '" << arg[0] << "'";
+	else if (type == T_INT || type == T_DOUBLE || type == T_FLOAT)
 	{
-		
-		ss << "char: '" << static_cast<char>(num ? num : *arg) << "'";
-		this->setMsg(ss.str());
+		num = strtol(arg.c_str(), &endptr, 10) * (sign == S_NEG ? -1 : 1);
+		if (num >= 32 && num <= 127)
+			ss << "char: '" << static_cast<char>(num) << "'";
+		else if (num == 0 && (type == T_DOUBLE || type == T_FLOAT))
+			ss << "char: impossible";
+		else
+			ss << "char: Non displayable";
 	}
-}
-
-bool	Char::isPrintable(long num) const
-{
-	if (num >= 32 && num <= 127)
-		return (true);
-	return (false);
+	this->setMsg(ss.str());
 }
 
 /***********************************

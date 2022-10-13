@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AScalar.hpp                                        :+:      :+:    :+:   */
+/*   Double.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 17:13:13 by hyap              #+#    #+#             */
-/*   Updated: 2022/10/13 13:41:41 by hyap             ###   ########.fr       */
+/*   Created: 2022/10/13 18:06:26 by hyap              #+#    #+#             */
+/*   Updated: 2022/10/13 18:09:46 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ASCALAR_H
-# define ASCALAR_H
+#ifndef DOUBLE_H
+# define DOUBLE_H
 # include <iostream>
-# include <sstream>
+# include "Conversion.hpp"
+# include "AScalar.hpp"
 
-class AScalar {
+class Conversion;
+
+class Double : public AScalar{
 	public:
-		AScalar(void);
-		virtual ~AScalar(void);
-		AScalar(const AScalar &src);
-		AScalar	&operator=(const AScalar &rhs);
-		
-		std::string	getMsg(void) const;
-		void		setMsg(const std::string msg);
-		
-		void	print(void) const;
+		Double(void);
+		~Double(void);
+		Double(const Double &src);
+		Double	&operator=(const Double &rhs);
+		Double(const Conversion &converted);
 
 	private:
-		std::string	_msg;
 };
 
 #endif

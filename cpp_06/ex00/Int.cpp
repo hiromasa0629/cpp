@@ -6,11 +6,12 @@
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 17:55:00 by hyap              #+#    #+#             */
-/*   Updated: 2022/10/10 18:09:43 by hyap             ###   ########.fr       */
+/*   Updated: 2022/10/13 18:03:17 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Int.hpp"
+#include <sstream>
 
 /***********************************
  * Constructors
@@ -32,26 +33,30 @@ Int	&Int::operator=(const Int &rhs)
 	return (*this);
 }
 
-/***********************************
- * Functions
-***********************************/
-
-void	Int::fit(char *arg)
+Int::Int(const Conversion &converted)
 {
+	const int			type = converted.getType();
+	const std::string	arg = converted.getArg();
+	const int			sign = converted.getSign();
 	std::stringstream	ss;
-	char				*end;
+	char				*endptr;
 	long				num;
 	
-	num = std::strtol(arg, &end, 10);
-	if (isNanOrNull(arg))
-		this->setMsg("int: non displayable");
-	else if (num > INT_MAX || num < INT_MIN)
-		this->setMsg("int: impossible");
-	else
+	if (type == T_IMPOSSIBLE || type == T_NAN)
+		ss << "int: impossbile";
+	else if (type == T_CHAR)
+		ss << "int: " << static_cast<int>(arg[0]);
+	else if (type == T_INT || type == T_DOUBLE || type == T_FLOAT)
 	{
-		ss << "int: " << static_cast<int>(num);
-		this->setMsg(ss.str());
+		num = strtol(arg.c_str(), &endptr, 10) * (sign == S_NEG ? -1 : 1);
+		if (num > INT_MAX || num < INT_MIN)
+			ss << "int: impossible";
+		else if ((type == T_DOUBLE || type == T_FLOAT) && (std::strncmp(arg.c_str(), "inf", 3) == 0))
+			ss << "int: impossible";
+		else
+			ss << "int: " << num;
 	}
+	this->setMsg(ss.str());
 }
 
 /***********************************

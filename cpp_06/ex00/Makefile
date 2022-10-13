@@ -6,11 +6,11 @@
 #    By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/14 12:49:23 by hyap              #+#    #+#              #
-#    Updated: 2022/10/09 17:31:26 by hyap             ###   ########.fr        #
+#    Updated: 2022/10/13 14:20:05 by hyap             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= main
+NAME		= convert
 SRCS		= $(wildcard *.cpp)
 OBJS 		= $(SRCS:.cpp=.o)
 DEPENDS		= $(OBJS:.o=.d)
