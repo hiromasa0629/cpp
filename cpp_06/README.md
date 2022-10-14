@@ -18,6 +18,6 @@ dynamic_cast<new_type>(expression)
 Ref: https://en.cppreference.com/w/cpp/language/reinterpret_cast
 ```cpp
 // Returns a value of type new_type but it instruct the compiler to treat expression as if it had the type new_type
-reinterpret_cast(new_type)(expression)
+reinterpret_cast<new_type>(expression)
 ```
 
