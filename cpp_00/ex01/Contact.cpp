@@ -6,7 +6,7 @@
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 13:02:32 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/17 00:42:09 by hyap             ###   ########.fr       */
+/*   Updated: 2022/10/18 20:15:29 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	Contact::set_index(int i)
 	this->_index = i;
 }
 
-bool	Contact::set_contact(int index)
+bool	Contact::set_contact(int index, std::fstream &fs)
 {
 	std::string	tmp_info[5];
 	std::string fields[5] = {
@@ -95,8 +95,14 @@ bool	Contact::set_contact(int index)
 
 	for (int i = 0; i < 5; i++)
 	{
-		std::cout << fields[i] << ": " << std::ends;
-		std::getline(std::cin, tmp_info[i]);
+		std::cout << fields[i] << ": ";
+		if (fs)
+		{
+			std::getline(fs, tmp_info[i]);
+			std::cout << tmp_info[i] << std::endl;
+		}
+		else
+			std::getline(std::cin, tmp_info[i]);
 		if (tmp_info[i].length() < 1)
 		{
 			std::cout << "Field cannot be empty!" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 17:57:33 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/17 01:03:54 by hyap             ###   ########.fr       */
+/*   Updated: 2022/10/18 20:10:05 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ PhoneBook::~PhoneBook(void)
 	return ;
 }
 
-bool	PhoneBook::add_contact(int index)
+bool	PhoneBook::add_contact(int index, std::fstream &fs)
 {
 	bool	tmp;
 
-	tmp = this->contacts[index].set_contact(index);
+	tmp = this->contacts[index].set_contact(index, fs);
 	if (tmp)
 	{
 		this->count++;
@@ -42,7 +42,16 @@ bool	PhoneBook::add_contact(int index)
 
 void	PhoneBook::search_contact(int index) const
 {
-	this->contacts[index].show_contact();
+	if (index > (this->count - 1))
+	{
+		std::cout << "Out of Index !" << std::endl;
+		return ;
+	}
+	std::cout << "First Name: " << this->contacts[index].get_first_name() << std::endl;
+	std::cout << "Last Name: " << this->contacts[index].get_last_name() << std::endl;
+	std::cout << "Nickname: "	 << this->contacts[index].get_nickname() << std::endl;
+	std::cout << "Phone Number: " << this->contacts[index].get_phone_number() << std::endl;
+	std::cout << "Darkest Secret: " << this->contacts[index].get_secret() << std::endl;
 }
 
 void	PhoneBook::show_all_contacts(void) const

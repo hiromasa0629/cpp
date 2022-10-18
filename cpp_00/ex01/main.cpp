@@ -6,13 +6,14 @@
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 18:12:53 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/17 01:02:02 by hyap             ###   ########.fr       */
+/*   Updated: 2022/10/18 20:14:39 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-void	run_cmds(std::string s)
+
+void	run_cmds(std::string s, std::fstream &fs)
 {
 	static int			index = 0;
 	static PhoneBook	pb;
@@ -20,8 +21,7 @@ void	run_cmds(std::string s)
 
 	if (s == "ADD")
 	{
-		std::cout << std::to_string(index) << std::endl;
-		if (!pb.add_contact(index))
+		if (!pb.add_contact(index, fs))
 			return ;
 		index++;
 		if (index > 7)
@@ -30,8 +30,14 @@ void	run_cmds(std::string s)
 	else if (s == "SEARCH")
 	{
 		pb.show_all_contacts();
-		std::cout << "Enter a contact index: " << std::ends;
-		std::getline(std::cin, tmp);
+		std::cout << "Enter a contact index: ";
+		if (fs)
+		{
+			std::getline(fs, tmp);
+			std::cout << tmp << std::endl;
+		}
+		else
+			std::getline(std::cin, tmp);
 		if (tmp.length() > 1)
 			std::cout << "Index too large!" << std::endl;
 		else if (std::isdigit(tmp[0]))
@@ -41,7 +47,7 @@ void	run_cmds(std::string s)
 		std::exit(1);
 }
 
-int	main(void)
+int	main(int ac, char **av)
 {
 	std::string s;
 
@@ -49,13 +55,34 @@ int	main(void)
 	std::cout << "SEARCH: Display all contacts and show specific contact" << std::endl;
 	std::cout << "EXIT: Exit the phonebook and all contacts will be erased" << std::endl;
 	std::cout << "========================================================" << std::endl;
-
-	while (1)
+	std::fstream	fs;
+	
+	if (ac > 1)
 	{
-		std::cout << "Command: " << std::ends;
-		std::getline(std::cin, s);
-		if (s.empty())
+		fs.open("test");
+		std::string	str(av[ac - 1]);
+		if (str.compare("test") != 0)
 			return (0);
-		run_cmds(s);
+		while (1)
+		{
+			std::cout << "Command: ";
+			std::getline(fs, s);
+			std::cout << s << std::endl;
+			if (s.empty())
+				return (0);
+			run_cmds(s, fs);
+		}
+	}
+	else
+	{
+		fs.open("");
+		while (1)
+		{
+			std::cout << "Command: " << std::ends;
+			std::getline(std::cin, s);
+			if (s.empty())
+				return (0);
+			run_cmds(s, fs);
+		}
 	}
 }

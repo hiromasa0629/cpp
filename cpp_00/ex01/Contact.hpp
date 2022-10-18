@@ -6,13 +6,14 @@
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 12:50:19 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/17 00:32:16 by hyap             ###   ########.fr       */
+/*   Updated: 2022/10/18 20:10:51 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 # include <iostream>
+# include <fstream>
 
 class Contact {
 	private:
@@ -41,7 +42,7 @@ class Contact {
 		void	set_secret(std::string s);
 		void	set_index(int i);
 
-		bool	set_contact(int index);
+		bool	set_contact(int index, std::fstream &fs);
 		void	show_contact(void) const;
 };
 
