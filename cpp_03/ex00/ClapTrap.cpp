@@ -6,7 +6,7 @@
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 16:49:40 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/23 00:53:34 by hyap             ###   ########.fr       */
+/*   Updated: 2022/09/19 21:28:20 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ ClapTrap::ClapTrap(const ClapTrap &a) : _name(a.get_name()), _hp(a.get_hp()), _e
 	std::cout << GREEN << "ClapTrap [" << this->get_name() << "] ClapTrap copy constructor called" << WHITE << std::endl;
 	this->print_status();
 }
+
+
 
 ClapTrap	&ClapTrap::operator=(const ClapTrap &rhs)
 {

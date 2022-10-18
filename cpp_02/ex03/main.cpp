@@ -6,7 +6,7 @@
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 20:56:12 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/21 23:16:13 by hyap             ###   ########.fr       */
+/*   Updated: 2022/08/31 16:37:57 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ std::vector<int> ft_split(char *s, char sep)
 	while (std::getline(ss, seg, sep))
 		res.push_back(std::atoi(seg.c_str()));
 	return (res);
-	
+
 }
 
 std::vector< std::vector<int> >	parse_arg(int ac, char **av)
@@ -101,10 +101,7 @@ void	print_dots(std::vector< std::vector<int> > plots)
 			if (it2 == (*it).begin() && *it2 > max_x)
 				max_x = *it2;
 			if (it2 == std::prev((*it).end()) && *it2 < min_y)
-			{
-				std::cout << "Here" << std::endl;
 				min_y = *it2;
-			}
 			if (it2 == std::prev((*it).end()) && *it2 > max_y)
 				max_y = *it2;
 		}
@@ -117,13 +114,13 @@ void	print_dots(std::vector< std::vector<int> > plots)
 	std::cout << "min_y: " << min_y << std::endl;
 	std::cout << "max_y: " << max_y << std::endl;
 	std::cout << "==============================" << std::endl;
-	
+
 	std::vector< std::vector<int> > graph;
 	std::vector<int>				x_axis;
-	
+
 	int	x_start;
 	int	y_start;
-	
+
 	x_start = min_x;
 	y_start = max_y;
 	for (int i = y_start; i > min_y - 1; i--)
@@ -131,13 +128,6 @@ void	print_dots(std::vector< std::vector<int> > plots)
 		x_axis.clear();
 		for (int j = x_start; j < max_x + 1; j++)
 		{
-			// x_axis.push_back(j);
-			// if (is_point(plots, i, j))
-			// 	std::cout << "o";
-			// else if (!is_plot(plots, i, j))
-			// 	std::cout << ".";
-			// else
-			// 	std::cout << count++;
 			std::cout << "[" << j << "," << i << "]";
 			if (j != max_x)
 				std::cout << " ";
@@ -157,7 +147,7 @@ void	print_dots(std::vector< std::vector<int> > plots)
 			else
 				std::cout << "@";
 			if (j != max_x)
-				std::cout << " ";	
+				std::cout << " ";
 		}
 		std::cout << std::endl;
 		graph.push_back(x_axis);
