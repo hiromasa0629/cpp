@@ -6,7 +6,7 @@
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 14:37:37 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/24 18:12:42 by hyap             ###   ########.fr       */
+/*   Updated: 2023/01/30 19:56:58 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,5 @@ FragTrap	&FragTrap::operator=(const FragTrap &rhs)
 
 void	FragTrap::highFivesGuys(void) const
 {
-	std::cout << "FragTrap [" << this->get_name() << "]High give guys ?" << std::endl;
+	std::cout << "FragTrap [" << this->get_name() << "] High five guys ?" << std::endl;
 }

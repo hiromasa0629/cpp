@@ -6,7 +6,7 @@
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 00:03:30 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/24 15:08:58 by hyap             ###   ########.fr       */
+/*   Updated: 2023/01/30 19:51:03 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	ScavTrap::attack(const std::string &target)
 
 void	ScavTrap::print_status(void) const
 {
-	std::cout << "[" << this->get_name() << "] HP: " << this->get_hp() << ", ENERGY: " << this->get_energy() << std::endl;
+	std::cout << BLUE << "[" << this->get_name() << "] HP: " << this->get_hp() << ", ENERGY: " << this->get_energy() << WHITE << std::endl;
 }
 
 void	ScavTrap::guardGate(void) const

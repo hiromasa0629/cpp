@@ -6,7 +6,7 @@
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 01:36:53 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/18 01:53:04 by hyap             ###   ########.fr       */
+/*   Updated: 2023/01/16 20:21:46 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 Zombie::Zombie(std::string name)
 {
 	this->_name = name;
+	std::cout << "name constructor" << std::endl;
 }
 
 Zombie::~Zombie(void)
@@ -27,3 +28,6 @@ void	Zombie::announce(void)
 {
 	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
+
+Zombie::Zombie(const Zombie &src) { this->_name = src._name; std::cout << " Zombie is copied " << std::endl; }
+Zombie	&Zombie::operator=(const Zombie &rhs) { this->_name = rhs._name; std::cout << " Zombie copy assig " << std::endl; return (*this); }

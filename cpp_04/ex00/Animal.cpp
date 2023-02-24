@@ -6,7 +6,7 @@
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 16:20:34 by hyap              #+#    #+#             */
-/*   Updated: 2022/09/01 16:17:42 by hyap             ###   ########.fr       */
+/*   Updated: 2023/02/01 18:27:32 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	Animal::set_type(std::string type)
 
 void	Animal::makeSound(void) const
 {
-	std::cout << "[Animal] kdhfkshfklsdkg..." << std::endl;
+	std::cout << "kdhfkshfklsdkg..." << std::endl;
 }
 
 /***********************************

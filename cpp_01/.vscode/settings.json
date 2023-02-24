@@ -1,5 +1,7 @@
 {
 	"files.associations": {
+		"*.tpp": "cpp",
+		"*.hpp": "cpp",
 		"__bit_reference": "cpp",
 		"__config": "cpp",
 		"__debug": "cpp",
@@ -54,6 +56,15 @@
 		"deque": "cpp",
 		"fstream": "cpp",
 		"iomanip": "cpp",
-		"stack": "cpp"
+		"stack": "cpp",
+		"__hash_table": "cpp",
+		"__node_handle": "cpp",
+		"array": "cpp",
+		"cmath": "cpp",
+		"complex": "cpp",
+		"optional": "cpp",
+		"sstream": "cpp",
+		"unordered_map": "cpp",
+		"vector": "cpp"
 	}
 }

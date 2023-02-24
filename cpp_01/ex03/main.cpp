@@ -6,7 +6,7 @@
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 22:31:53 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/18 23:58:39 by hyap             ###   ########.fr       */
+/*   Updated: 2023/01/16 19:46:18 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int main(void)
 		club.setType("some other type of club");
 		bob.attack();
 	}
+	
 	{
 		Weapon club = Weapon("crude spiked club");
 		HumanB jim("Jim");
@@ -33,7 +34,6 @@ int main(void)
 		club.setType("some other type of club");
 		jim.attack();
 	}
-	
 	system("leaks main");
 	return (0);
 }

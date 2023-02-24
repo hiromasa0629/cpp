@@ -6,7 +6,7 @@
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 01:32:40 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/18 01:51:59 by hyap             ###   ########.fr       */
+/*   Updated: 2023/01/16 20:12:43 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 class Zombie {
 	public:
 		Zombie(std::string name);
+		Zombie(const Zombie &src);
+		Zombie	&operator=(const Zombie &rhs);
 		~Zombie(void);
 
 		void	announce(void);

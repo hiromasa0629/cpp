@@ -6,7 +6,7 @@
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 15:32:52 by hyap              #+#    #+#             */
-/*   Updated: 2022/10/14 18:50:54 by hyap             ###   ########.fr       */
+/*   Updated: 2023/02/23 15:26:56 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ Array<T>	&Array<T>::operator=(const Array &rhs)
 	
 	this->_size = rhs.size();
 	if (this->_array)
-		delete this->_array;
+		delete[] this->_array;
 	arr = new T[rhs.size()];
 	for (size_t i = 0; i < rhs.size(); i++)
 		arr[i] = rhs._array[i];
@@ -62,5 +62,5 @@ unsigned int	Array<T>::size(void) const
 template <typename T>
 Array<T>::~Array(void)
 {
-	
+	delete[] _array;
 }

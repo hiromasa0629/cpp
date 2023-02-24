@@ -6,7 +6,7 @@
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 16:49:40 by hyap              #+#    #+#             */
-/*   Updated: 2022/09/19 21:28:20 by hyap             ###   ########.fr       */
+/*   Updated: 2023/01/30 19:42:18 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,5 +134,5 @@ void	ClapTrap::beRepaired(unsigned int amount)
 
 void	ClapTrap::print_status(void) const
 {
-	std::cout << "ClapTrap [" << this->get_name() << "] HP: " << this->get_hp() << ", ENERGY: " << this->get_energy() << std::endl;
+	std::cout << BLUE << "ClapTrap [" << this->get_name() << "] HP: " << this->get_hp() << ", ENERGY: " << this->get_energy() << WHITE << std::endl;
 }

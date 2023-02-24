@@ -6,7 +6,7 @@
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 16:18:09 by hyap              #+#    #+#             */
-/*   Updated: 2022/09/01 16:44:10 by hyap             ###   ########.fr       */
+/*   Updated: 2023/02/01 18:27:17 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,11 @@ int main()
 	
 	std::cout << j->get_type() << " " << std::endl;
 	std::cout << i->get_type() << " " << std::endl;
+	std::cout << "Dog: ";
 	i->makeSound(); //will output the cat sound!
+	std::cout << "Cat: ";
 	j->makeSound();
+	std::cout << "Animal: ";
 	meta->makeSound();
 	
 	delete(meta);

@@ -6,7 +6,7 @@
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 16:34:38 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/24 14:49:00 by hyap             ###   ########.fr       */
+/*   Updated: 2023/01/30 20:01:16 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,16 @@ int	main(int ac, char **av)
 
 	claptrap.attack(scavtrap.get_name());
 	scavtrap.takeDamage(claptrap.get_dmg());
+
 	scavtrap.attack(claptrap.get_name());
 	claptrap.takeDamage(scavtrap.get_dmg());
+
 	scavtrap.attack(claptrap.get_name());
 	claptrap.takeDamage(scavtrap.get_dmg());
+	
+	fragtrap.attack(scavtrap.get_name());
+	scavtrap.takeDamage(fragtrap.get_dmg());
+
 	scavtrap.beRepaired(3);
 	scavtrap.guardGate();
 	fragtrap.highFivesGuys();

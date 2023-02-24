@@ -6,7 +6,7 @@
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 15:12:20 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/24 18:16:48 by hyap             ###   ########.fr       */
+/*   Updated: 2023/01/30 20:02:25 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ DiamondTrap::DiamondTrap(void)
 {
 	this->_hp = FragTrap::_HP;
 	this->_energy = ScavTrap::_ENERGY;
-	this->_dmg = FragTrap::_ENERGY;
+	this->_dmg = FragTrap::_DMG;
 	std::cout << GREEN << "DiamondTrap Constructor called" << WHITE << std::endl;
 	this->print_status();
 }
@@ -26,7 +26,7 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), Scav
 	this->_name = name;
 	this->_hp = FragTrap::_HP;
 	this->_energy = ScavTrap::_ENERGY;
-	this->_dmg = FragTrap::_ENERGY;
+	this->_dmg = FragTrap::_DMG;
 	std::cout << GREEN << "DiamondTrap [" << this->get_name()  << "] name constructor called" << WHITE << std::endl;
 	this->print_status();
 }

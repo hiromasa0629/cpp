@@ -6,7 +6,7 @@
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 20:56:12 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/20 02:59:37 by hyap             ###   ########.fr       */
+/*   Updated: 2023/01/30 19:31:37 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,17 @@ int main(void)
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 	std::cout << Fixed::max( a, b ) << std::endl;
+	
+	std::cout << "====== My test ======" << std::endl;
+	
+	std::cout << "a : " << a << std::endl;
+	std::cout << "b : " << b << std::endl;
+	std::cout << "a > b  : " << (a > b) << std::endl;
+	std::cout << "a < b  : " << (a < b) << std::endl;
+	std::cout << "a >= b : " << (a >= b) << std::endl;
+	std::cout << "a <= b : " << (a <= b) << std::endl;
+	std::cout << "a == b : " << (a == b) << std::endl;
+	std::cout << "a != b : " << (a != b) << std::endl;
+	
 	return 0;
 }

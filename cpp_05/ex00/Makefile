@@ -6,7 +6,7 @@
 #    By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/14 12:49:23 by hyap              #+#    #+#              #
-#    Updated: 2022/10/11 15:12:33 by hyap             ###   ########.fr        #
+#    Updated: 2022/11/29 13:48:16 by hyap             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,11 @@ LDFLAGS		= -lstdc++
 
 all: $(NAME)
 
+%.o: %.cpp
+	$(CC) $(CPPFLAGS) -c $< -o $@
+
 $(NAME): $(OBJS)
+	$(CC) $(LDFLAGS) $^ -o $(NAME)
 
 -include $(DEPENDS)
 

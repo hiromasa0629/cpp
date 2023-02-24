@@ -6,7 +6,7 @@
 /*   By: hyap <hyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 02:49:01 by hyap              #+#    #+#             */
-/*   Updated: 2022/08/20 02:10:59 by hyap             ###   ########.fr       */
+/*   Updated: 2023/01/30 19:28:20 by hyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,37 +16,37 @@ const int	Fixed::_frac_bits = 8;
 
 Fixed::Fixed(void) : _fp(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int num)
 {
-	std::cout << "Int constructor called" << std::endl;
+	// std::cout << "Int constructor called" << std::endl;
 	this->setRawBits(std::roundf(num * (1 << Fixed::_frac_bits)));
 }
 
 Fixed::Fixed(const float fnum) : _fp(fnum)
 {
-	std::cout << "Float constructor called" << std::endl;
+	// std::cout << "Float constructor called" << std::endl;
 	this->setRawBits(std::roundf(fnum * (1 << Fixed::_frac_bits)));
 }
 
 Fixed::Fixed(const Fixed &a) : _fp(a._fp)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 	*this = a;
 }
 
 Fixed& Fixed::operator=(const Fixed &rhs)
 {
-	std::cout << "Copy assignment constructor called" << std::endl;
+	// std::cout << "Copy assignment constructor called" << std::endl;
 	this->_fp = rhs.getRawBits();
 	return (*this);
 }
 
 Fixed::~Fixed(void) 
 {
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 }
 
 int	Fixed::getRawBits(void) const
